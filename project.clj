@@ -4,7 +4,8 @@
   :license {:name "WTFPL"
             :url  "http://www.wtfpl.net/"}
   :dependencies [[org.clojure/clojure "1.10.3"]
-                 [com.github.seancorfield/expectations "2.0.160"]]
+                 [com.github.seancorfield/expectations "2.0.160"]
+                 [com.hyperfiddle/rcf "20220405"]]
   :main ^:skip-aot kata-0200-tests.core
   :target-path "target/%s"
 

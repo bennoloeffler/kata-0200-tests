@@ -12,7 +12,7 @@ see: https://cljdoc.org/d/lambdaisland/kaocha/1.67.1055/doc/plugin-notifier-desk
 run test continously by   
 cd to project dir  
 then:   
-`lein caocha`
+`lein kaocha`
 
 run coverage by  
 `lein coverage`  

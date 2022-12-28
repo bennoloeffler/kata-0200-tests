@@ -1,7 +1,7 @@
 (ns kata-0200-tests.core-test
   (:require [kata-0200-tests.core :refer :all] ; test subject - use all
             [clojure.test :refer [deftest testing is]] ; this could be overwritten by power asserts [erdos.assert :refer [is are]]
-            ; but power asserts are not needed with caocha, because of humane test output - TODO check...
+    ; but power asserts are not needed with caocha, because of humane test output - TODO check...
             [clojure.spec.alpha :as s] ; kind of typing for data structures - may be used in expectations 
             [expectations.clojure.test ; more readable tests
              :refer [defexpect expect expecting in more-of more from-each
@@ -32,13 +32,13 @@
 (deftest a-fun-test
   (testing "FIXME, I may fail."
     (is (= 6 (a-fun [1 2 3]))))
-    ; test to uncomment this...
-    #_(is (=  :oops-i-only-gave-one-argument)))
+  ; test to uncomment this...
+  #_(is (= :oops-i-only-gave-one-argument)))
 
 ; humane test output in caocha...
 (deftest two-structures-compared
-    (is (= {:key1 6 :key2 7 :8 9 :unkn [12 13 1]} 
-           {:key1 6 :key2 7 :unkn [12 13 1] :8 9})))
+  (is (= {:key1 6 :key2 7 :8 9 :unkn [12 13 1]}
+         {:key1 6 :key2 7 :unkn [12 13 1] :8 9})))
 
 ;; mix'n'match libraries:
 (deftest mixed ; traditional "is" with expectation...
@@ -84,32 +84,30 @@
 ;; some of more advanced features listed below):
 (defexpect grouped-behavior
   (expecting "numeric behavior"
-             
-             (expect (more-of [a b] string? a int? b) ["test" 42])
-             (expect (more-of {:keys [a b]}
-                              even? a
-                              odd?  b)
-                     {:a (* 2 13) :b (* 3 13)})
-             
-             (expect pos? (* -3 -5)))
-  
+
+    (expect (more-of [a b] string? a int? b) ["test" 42])
+    (expect (more-of {:keys [a b]}
+                     even? a
+                     odd? b)
+            {:a (* 2 13) :b (* 3 13)})
+
+    (expect pos? (* -3 -5)))
+
   (expecting "string behavior"
-             
-             (expect (more int? even?) 42)
-             (expect (more #"foo" 
-                           "foobar" 
-                           #(clojure.string/starts-with? % "f"))
-                     (str "f" "oobar"))
-             
-             (expect even? (from-each [v (range 10)] (* 2 v)))
-             (expect #"foo"
-                     (from-each [s ["l" "d" "bar"]]
-                                (str "foo" s)))))
+
+    (expect (more int? even?) 42)
+    (expect (more #"foo"
+                  "foobar"
+                  #(clojure.string/starts-with? % "f"))
+            (str "f" "oobar"))
+
+    (expect even? (from-each [v (range 10)] (* 2 v)))
+    (expect #"foo"
+            (from-each [s ["l" "d" "bar"]]
+                       (str "foo" s)))))
 
 (defexpect some-other-expecations
   (expect (between 4 9) 9)
   (expect (between' 4 9) 8) ; 9 won't do it...
-  (expect (approximately 4 0.1) 3.9)
+  (expect (approximately 4 0.1) 3.9))
 
-
-  )
