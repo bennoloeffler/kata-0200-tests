@@ -35,7 +35,8 @@
   ; test to uncomment this...
   #_(is (= :oops-i-only-gave-one-argument)))
 
-; humane test output in caocha...
+; humane test output in kaocha...
+; Command line: lein koacha
 (deftest two-structures-compared
   (is (= {:key1 6 :key2 7 :8 9 :unkn [12 13 1]}
          {:key1 6 :key2 7 :unkn [12 13 1] :8 9})))
@@ -89,7 +90,8 @@
     (expect (more-of {:keys [a b]}
                      even? a
                      odd? b)
-            {:a (* 2 13) :b (* 3 13)})
+            {:a (* 2 13) :b (* 3 13)}
+            #_{:a (* 4 13) :b (* 2 13)})
 
     (expect pos? (* -3 -5)))
 
