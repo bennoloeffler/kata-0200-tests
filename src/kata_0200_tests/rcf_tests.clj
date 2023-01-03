@@ -16,11 +16,11 @@
   "this is the test subject"
   [x] (* x x))
 
+
 (tests
   (square 6) := 36
-  (tests
-    81 := (square 9)
-    82) :<> (square 9))
-
+  81 := (square 9)
+  82 :<> (square 9)
+  {:a "a" :b 99} := {:a "a" :b 99})
 (tests
   true := (number? 4))

@@ -20,8 +20,11 @@
 (defn a-fun [coll]
   (reduce + coll))
 
-; THIS TEST WILL NOT BE RUN BY kaocha runner!
-; But you may run it by CTRL-OPTION-Enter CTRL-OPTION-C-T
+(comment
+  (a-fun [1 2 3]))
+
+; THIS TEST WILL BE RUN BY kaocha runner!
+; when loading the file
 (deftest a-fun-test-ignored-by-kaocha-here
   (testing "Context of the test assertions"
     (is (= 3 (a-fun [1 2])))))
